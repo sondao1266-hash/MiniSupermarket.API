@@ -16,7 +16,9 @@ namespace MiniSupermarket.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCategoryManagement());
+            // Chỉ khởi chạy FormLogin; FormCategoryManagement chỉ được mở
+            // từ bên trong FormLogin.cs SAU KHI đăng nhập thành công.
+            Application.Run(new FormLogin());
         }
     }
 }

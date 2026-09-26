@@ -596,7 +596,7 @@ namespace MiniSupermarket.WinForms
                     Color.Gray;
             }
         }
-
+        
 
         // =====================================================
         // MODEL CATEGORY
