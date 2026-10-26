@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MiniSupermarket.API.Data;
@@ -8,7 +8,6 @@ namespace MiniSupermarket.API.Controllers
 {
     [Route("api/[controller]")] // /api/customers
     [ApiController]
-    [Authorize(Roles = "Admin,Cashier")] // Nhân viên (Admin, Cashier) quản lý khách hàng thân thiết
     public class CustomersController : ControllerBase
     {
         private readonly SupermarketDbContext _context;
@@ -16,6 +15,52 @@ namespace MiniSupermarket.API.Controllers
         public CustomersController(SupermarketDbContext context)
         {
             _context = context;
+        }
+
+        // =========================================================================
+        // GET: api/customers/paged?keyword=&pageNumber=1&pageSize=5
+        // BUỔI 6: BÀI TẬP 6.1 (Phân trang khách hàng, sắp xếp giảm dần theo RewardPoints)
+        // =========================================================================
+        [HttpGet("paged")]
+        public async Task<IActionResult> GetPagedCustomers(
+            [FromQuery] string? keyword,
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 5)
+        {
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1 || pageSize > 50) pageSize = 5;
+
+            var query = _context.Customers
+                .AsNoTracking()
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                string search = keyword.Trim().ToLower();
+                query = query.Where(c => c.CustomerName.ToLower().Contains(search)
+                                       || c.PhoneNumber.Contains(search));
+            }
+
+            int totalItems = await query.CountAsync();
+            int totalPages = (int)Math.Ceiling((double)totalItems / (double)pageSize);
+            if (totalPages == 0) totalPages = 1;
+
+            var items = await query
+                .OrderByDescending(c => c.RewardPoints)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            var response = new PagedResult<Customer>
+            {
+                CurrentPage = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems,
+                TotalPages = totalPages,
+                Items = items
+            };
+
+            return Ok(response);
         }
 
         // 1. GET /api/customers
@@ -89,9 +134,8 @@ namespace MiniSupermarket.API.Controllers
             return NoContent();
         }
 
-        // 6. DELETE /api/customers/{id} (chỉ Admin)
+        // 6. DELETE /api/customers/{id}
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var customer = await _context.Customers.FindAsync(id);

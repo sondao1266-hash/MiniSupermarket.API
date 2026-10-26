@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MiniSupermarket.API.Data;
@@ -8,7 +8,6 @@ namespace MiniSupermarket.API.Controllers
 {
     [Route("api/[controller]")] // Định tuyến cơ sở: /api/categories
     [ApiController]
-    [Authorize] // Bắt buộc phải có Token mới gọi được các API trong Controller này
     public class CategoriesController : ControllerBase
     {
         private readonly SupermarketDbContext _context;
@@ -59,35 +58,56 @@ namespace MiniSupermarket.API.Controllers
         // 4. CREATE: Thêm mới nhóm hàng vào Database (chỉ Admin)
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([FromBody] Category newCat)
+        public async Task<IActionResult> Create([FromBody] Category newCategory)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            newCat.CategoryId = 0; // để SQL Server tự tăng (Identity)
-            _context.Categories.Add(newCat);
-            await _context.SaveChangesAsync(); // Lưu thay đổi vào SQL Server
 
-            return CreatedAtAction(nameof(GetById), new { id = newCat.CategoryId }, newCat);
+            // Kiểm tra trùng tên nhóm hàng
+            var exists = await _context.Categories
+                .AnyAsync(c => c.CategoryName.ToLower() == newCategory.CategoryName.Trim().ToLower());
+            if (exists)
+            {
+                return BadRequest(new { message = "Tên nhóm hàng này đã tồn tại trong CSDL!" });
+            }
+
+            newCategory.CategoryId = 0; // Để SQL Server tự phát sinh Identity
+            newCategory.CategoryName = newCategory.CategoryName.Trim();
+            _context.Categories.Add(newCategory);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetById), new { id = newCategory.CategoryId }, newCategory);
         }
 
-        // 5. UPDATE: Cập nhật nhóm hàng vào Database (chỉ Admin)
+        // 5. UPDATE: Sửa thông tin nhóm hàng theo ID (chỉ Admin)
         [HttpPut("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Update(int id, [FromBody] Category updateCat)
+        public async Task<IActionResult> Update(int id, [FromBody] Category updateCategory)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var cat = await _context.Categories.FindAsync(id);
-            if (cat == null)
+
+            var category = await _context.Categories.FindAsync(id);
+            if (category == null)
             {
                 return NotFound(new { message = "Không tìm thấy nhóm hàng cần sửa!" });
             }
-            cat.CategoryName = updateCat.CategoryName;
-            cat.Description = updateCat.Description;
+
+            // Kiểm tra trùng tên với bản ghi khác
+            var exists = await _context.Categories
+                .AnyAsync(c => c.CategoryName.ToLower() == updateCategory.CategoryName.Trim().ToLower() && c.CategoryId != id);
+            if (exists)
+            {
+                return BadRequest(new { message = "Tên nhóm hàng đã được sử dụng bởi nhóm khác!" });
+            }
+
+            category.CategoryName = updateCategory.CategoryName.Trim();
+            category.Description = updateCategory.Description;
+
             await _context.SaveChangesAsync();
             return NoContent();
         }
@@ -97,30 +117,25 @@ namespace MiniSupermarket.API.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
-            var cat = await _context.Categories.FindAsync(id);
-            if (cat == null)
+            var category = await _context.Categories
+                .Include(c => c.Products)
+                .FirstOrDefaultAsync(c => c.CategoryId == id);
+
+            if (category == null)
             {
                 return NotFound(new { message = "Không tìm thấy nhóm hàng cần xóa!" });
             }
-            _context.Categories.Remove(cat);
+
+            // Kiểm tra ràng buộc toàn vẹn khóa ngoại
+            if (category.Products.Any())
+            {
+                return BadRequest(new { message = "Không thể xóa nhóm hàng này vì đang có sản phẩm liên kết!" });
+            }
+
+            _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
+
             return NoContent();
-        }
-
-        // Kiểm tra quyền Admin (Buổi 2)
-        [HttpGet("admin-dashboard")]
-        [Authorize(Roles = "Admin")]
-        public IActionResult GetAdminDashboard()
-        {
-            return Ok(new { message = "Chào mừng Admin! Bạn có toàn quyền quản trị hệ thống siêu thị mini." });
-        }
-
-        // Kiểm tra quyền chung cho nhân viên (Buổi 2)
-        [HttpGet("staff-pos")]
-        [Authorize(Roles = "Admin,Cashier")]
-        public IActionResult GetStaffPos()
-        {
-            return Ok(new { message = "Màn hình POS Thu ngân sẵn sàng phục vụ bán hàng." });
         }
     }
 }
