@@ -84,8 +84,17 @@ namespace MiniSupermarket.WinForms
         // =====================================================
         private void DisplayCategories(List<Category> list)
         {
-            dataGridView1.Rows.Clear();
+            // Nếu lưới chưa có cột (Designer bị mất cột) thì tạo lại bằng code
+            if (dataGridView1.Columns.Count == 0)
+            {
+                dataGridView1.Columns.Add("colID", "Mã ID");
+                dataGridView1.Columns.Add("colName", "Tên nhóm hàng");
+                dataGridView1.Columns.Add("colDescription", "Mô tả");
+                dataGridView1.Columns["colDescription"].AutoSizeMode =
+                    DataGridViewAutoSizeColumnMode.Fill;
+            }
 
+            dataGridView1.Rows.Clear();
             foreach (Category category in list)
             {
                 int rowIndex = dataGridView1.Rows.Add();
@@ -394,6 +403,11 @@ namespace MiniSupermarket.WinForms
             public string CategoryName { get; set; }
 
             public string Description { get; set; }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

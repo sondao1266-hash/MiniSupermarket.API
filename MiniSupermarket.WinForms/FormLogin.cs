@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -51,15 +51,26 @@ namespace MiniSupermarket.WinForms
                         // Trích xuất Token và Role lưu vào lớp tĩnh SessionManager dùng chung toàn ứng dụng
                         SessionManager.JwtToken = doc.RootElement.GetProperty("token").GetString() ?? string.Empty;
                         SessionManager.CurrentRole = doc.RootElement.GetProperty("role").GetString() ?? string.Empty;
+
+
+                        // MỚI: lưu tên đăng nhập và họ tên
+    SessionManager.CurrentUsername = username;
+    JsonElement fn;
+    SessionManager.FullName = doc.RootElement.TryGetProperty("fullName", out fn)
+        ? (fn.GetString() ?? username)
+        : username;
                     }
 
                     MessageBox.Show($"Đăng nhập thành công với quyền: {SessionManager.CurrentRole}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Mở Form quản lý chính (FormCategoryManagement) và ẩn Form đăng nhập đi
-                    FormCategoryManagement mainForm = new FormCategoryManagement();
-                    this.Hide();
-                    mainForm.ShowDialog();
-                    this.Close(); // Đóng hẳn ứng dụng khi form chính tắt
+                   this.Hide();
+using (var shell = new FormMainShell())
+{
+    shell.ShowDialog();
+}
+txtPass.Clear();
+this.Show();   // quay lại màn đăng nhập khi đăng xuất
                 }
                 else
                 {
@@ -146,7 +157,7 @@ namespace MiniSupermarket.WinForms
             this.ClientSize = new System.Drawing.Size(727, 549);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormLogin";
-            this.Text = "Đăng nhập hệ thống";
+            this.Text = "Kitchen Express - Đăng nhập hệ thống";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
