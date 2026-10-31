@@ -1,0 +1,116 @@
+[
+  {
+    "name": "1.1 Daily Report 2026-10-23 (Hom nay)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"totalOrders\": 9, \"totalRevenue\": 17430000.0, \"bestSeller\": \"Nồi chiên không dầu Philips 5L\"}"
+  },
+  {
+    "name": "1.2 Daily Report 2026-10-07 (Co don hang)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"totalOrders\": 2, \"totalRevenue\": 1820000.0, \"bestSeller\": \"Không có chi tiết\"}"
+  },
+  {
+    "name": "1.3 SP Revenue By Cashier (sp_GetRevenueByCashier)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"success\": true, \"generatedAt\": \"2026-10-23 00:48:33\", \"totalCashiers\": 8, \"grandTotalRevenue\": 39000000.0, \"data\": [{\"cashierUsername\": \"cashier01\", \"totalOrders\": 11, \"totalRevenue\": 14670000.0, \"totalPointsAwarded\": 1467}, {\"cashierUsername\": \"admin01\", \"totalOrders\": 1, \"totalRevenue\": 7470000.0, \"totalPointsAwarded\": 747}, {\"cashierUsername\": \"cashier03\", \"totalOrders\": 2, \"totalRevenue\": 3520000.0, \"totalPointsAwarded\": 352}, {\"cashierUsername\": \"cashier04\", \"totalOrders\": 2, \"totalRevenue\": 3290000.0, \"totalPointsAwarded\": 329}, {\"cashierUsername\": \"cashier05\", \"totalOrders\": 2, \"totalRevenue\": 3045000.0, \"totalPointsAwarded\": 304}, {\"cashierUsername\": \"cashier02\", \"totalOrders\": 2, \"totalRevenue\": 2765000.0, \"totalPointsAwarded\": 276}, {\"cashierUsername\": \"cashier07\", \"totalOrders\": 2, \"totalRevenue\": 2150000.0, \"totalPointsAwarded\": 215}, {\"cashierUsername\": \"cashier06\", \"totalOrders\": 2, \"totalRevenue\": 2090000.0, \"totalPointsAwarded\": 209}]}"
+  },
+  {
+    "name": "1.4 SP Revenue By Date Range (sp_GetRevenueByDateRange)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"success\": true, \"fromDate\": \"2026-10-01T00:00:00\", \"toDate\": \"2026-10-31T23:59:59.9999999\", \"totalCashiers\": 8, \"grandTotalRevenue\": 39000000.0, \"data\": [{\"cashierUsername\": \"cashier01\", \"totalOrders\": 11, \"totalRevenue\": 14670000.0, \"totalPointsAwarded\": 1467}, {\"cashierUsername\": \"admin01\", \"totalOrders\": 1, \"totalRevenue\": 7470000.0, \"totalPointsAwarded\": 747}, {\"cashierUsername\": \"cashier03\", \"totalOrders\": 2, \"totalRevenue\": 3520000.0, \"totalPointsAwarded\": 352}, {\"cashierUsername\": \"cashier04\", \"totalOrders\": 2, \"totalRevenue\": 3290000.0, \"totalPointsAwarded\": 329}, {\"cashierUsername\": \"cashier05\", \"totalOrders\": 2, \"totalRevenue\": 3045000.0, \"totalPointsAwarded\": 304}, {\"cashierUsername\": \"cashier02\", \"totalOrders\": 2, \"totalRevenue\": 2765000.0, \"totalPointsAwarded\": 276}, {\"cashierUsername\": \"cashier07\", \"totalOrders\": 2, \"totalRevenue\": 2150000.0, \"totalPointsAwarded\": 215}, {\"cashierUsername\": \"cashier06\", \"totalOrders\": 2, \"totalRevenue\": 2090000.0, \"totalPointsAwarded\": 209}]}"
+  },
+  {
+    "name": "1.5 SP Top 5 Selling Products (sp_GetTop5SellingProducts)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"success\": true, \"data\": [{\"productId\": 1, \"productName\": \"Nồi chiên không dầu Philips 5L\", \"totalSold\": 9, \"totalRevenue\": 22410000.0}, {\"productId\": 3, \"productName\": \"Nồi cơm điện cao tần Panasonic 1.8L\", \"totalSold\": 5, \"totalRevenue\": 1850000.0}, {\"productId\": 7, \"productName\": \"Chảo chống dính sâu lòng Tefal 28cm\", \"totalSold\": 2, \"totalRevenue\": 960000.0}, {\"productId\": 11, \"productName\": \"Bộ dụng cụ nấu silicone chịu nhiệt (5 món)\", \"totalSold\": 2, \"totalRevenue\": 380000.0}, {\"productId\": 6, \"productName\": \"Bộ nồi inox 5 đáy Elmich 3 chiếc\", \"totalSold\": 1, \"totalRevenue\": 1250000.0}]}"
+  },
+  {
+    "name": "2.1 Dang nhap Admin (admin01)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"success\": true, \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluMDEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3OTI2OTEzMTMsImV4cCI6MTc5MjY5ODUxMywiaWF0IjoxNzkyNjkxMzEzfQ.60lO---elQouqk_EtyDbD6joYhrMLySGWGXhanzgKJk\", \"role\": \"Admin\", \"username\": \"admin01\", \"fullName\": \"Nguyễn Quản Trị\"}"
+  },
+  {
+    "name": "2.2 Dang nhap Thu ngan (cashier01)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"success\": true, \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImNhc2hpZXIwMSIsInJvbGUiOiJDYXNoaWVyIiwibmJmIjoxNzkyNjkxMzEzLCJleHAiOjE3OTI2OTg1MTMsImlhdCI6MTc5MjY5MTMxM30.sWBeNNj66JyuEP16rXgGaJbZYhoTe8bm3AUBTMqvOOU\", \"role\": \"Cashier\", \"username\": \"cashier01\", \"fullName\": \"Lê Thu Ngân\"}"
+  },
+  {
+    "name": "2.3 Dang nhap Kho (ware01)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"success\": true, \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IndhcmUwMSIsInJvbGUiOiJXYXJlaG91c2UiLCJuYmYiOjE3OTI2OTEzMTQsImV4cCI6MTc5MjY5ODUxNCwiaWF0IjoxNzkyNjkxMzE0fQ.n75ZD7TBglxSXgRpkIi_m2fxLmIyiEDw-kcJvCHrWqg\", \"role\": \"Warehouse\", \"username\": \"ware01\", \"fullName\": \"Ngô Quản Kho\"}"
+  },
+  {
+    "name": "2.4 Danh sach Users (bao ve boi JWT)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "[{\"id\": 1, \"username\": \"admin01\", \"fullName\": \"Nguyễn Quản Trị\", \"role\": \"Admin\", \"isActive\": true}, {\"id\": 2, \"username\": \"admin02\", \"fullName\": \"Trần Giám Đốc\", \"role\": \"Admin\", \"isActive\": true}, {\"id\": 3, \"username\": \"cashier01\", \"fullName\": \"Lê Thu Ngân\", \"role\": \"Cashier\", \"isActive\": true}, {\"id\": 4, \"username\": \"cashier02\", \"fullName\": \"Phạm Bán Hàng\", \"role\": \"Cashier\", \"isActive\": true}, {\"id\": 5, \"username\": \"cashier03\", \"fullName\": \"Hoàng Thu Ngân\", \"role\": \"Cashier\", \"isActive\": true}, {\"id\": 6, \"username\": \"cashier04\", \"fullName\": \"Vũ Thị Quầy\", \"role\": \"Cashier\", \"isActive\": true}, {\"id\": 7, \"username\": \"cashier05\", \"fullName\": \"Đỗ Bán Lẻ\", \"role\": \"Cashier\", \"isActive\": true}, {\"id\": 8, \"username\": \"ware01\", \"fullName\": \"Ngô Quản Kho\", \"role\": \"Warehouse\", \"isActive\": true}, {\"id\": 9, \"username\": \"ware02\", \"fullName\": \"Bùi Kiểm Kê\", \"role\": \"Warehouse\", \"isActive\": true}, {\"id\": 10, \"username\": \"ware03\", \"fullName\": \"Dương Thủ Kho\", \"role\": \"Warehouse\", \"isActive\": true}, {\"id\": 11, \"username\": \"ware04\", \"fullName\": \"Lý Nhập Hàng\", \"role\": \"Warehouse\", \"isActive\": true}, {\"id\": 12, \"username\": \"admin_backup\", \"fullName\": \"Đặng Hỗ Trợ\", \"role\": \"Admin\", \"isActive\": true}, {\"id\": 13, \"username\": \"cashier06\", \"fullName\": \"Hồ Ca Chiều\", \"role\": \"Cashier\", \"isActive\": true}, {\"id\": 14, \"username\": \"ware05\", \"fullName\": \"Trương Vận Chuyển\", \"role\": \"Warehouse\", \"isActive\": true}, {\"id\": 15, \"username\": \"supervisor\", \"fullName\": \"Mai Giám Sát\", \"role\": \"Admin\", \"isActive\": true}]"
+  },
+  {
+    "name": "3.1 Lay toan bo danh muc (Categories)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "[{\"categoryId\": 1, \"categoryName\": \"Nồi & Chảo chống dính\", \"description\": \"Chảo từ, chảo sâu lòng, nồi inox 3 đáy, 5 đáy\"}, {\"categoryId\": 2, \"categoryName\": \"Thiết bị Điện nhà bếp\", \"description\": \"Bếp từ, nồi cơm điện cao tần, ấm đun giữ nhiệt\"}, {\"categoryId\": 3, \"categoryName\": \"Dụng cụ Cắt thái & Sơ chế\", \"description\": \"Bộ dao thép không gỉ, thớt gỗ kháng khuẩn, kéo bếp\"}, {\"categoryId\": 4, \"categoryName\": \"Hộp đựng & Bảo quản thực phẩm\", \"description\": \"Hộp thủy tinh chịu nhiệt, hộp cơm giữ nhiệt văn phòng\"}, {\"categoryId\": 5, \"categoryName\": \"Dụng cụ Pha chế & Bàn ăn\", \"description\": \"Bình giữ nhiệt inox 304, bộ ấm chén gốm sứ Bát Tràng\"}, {\"categoryId\": 6, \"categoryName\": \"Lò vi sóng & Thiết bị nướng\", \"description\": \"Lò vi sóng điện tử, lò nướng thùng, vỉ nướng chống dính\"}, {\"categoryId\": 7, \"categoryName\": \"Nồi chiên & Nồi áp suất\", \"description\": \"Nồi chiên không dầu công nghệ Rapid Air, nồi áp suất điện\"}, {\"categoryId\": 8, \"categoryName\": \"Máy xay & Máy ép hoa quả\", \"description\": \"Máy xay sinh tố đa năng, máy ép chậm nước trái cây\"}, {\"categoryId\": 9, \"categoryName\": \"Thiết bị Pha trà & Cà phê\", \"description\": \"Bình đun siêu tốc thông minh, phin pha, máy pha cà phê mini\"}, {\"categoryId\": 10, \"categoryName\": \"Dụng cụ Làm bánh & Định lượng\", \"description\": \"Cân tiểu ly điện tử, khuôn bánh silicon, cây đánh trứng\"}, {\"categoryId\": 11, \"categoryName\": \"Kệ giá & Khay để đồ nhà bếp\", \"description\": \"Kệ để dao thớt inox 304, giá úp bát đĩa thông minh\"}, {\"categoryId\": 12, \"categoryName\": \"Dụng cụ Vệ sinh nhà bếp\", \"description\": \"Cọ xoong nồi đa năng, giá treo khăn lau, găng tay silicon\"}, {\"categoryId\": 13, \"categoryName\": \"Đồ sành sứ & Thủy tinh cao cấp\", \"description\": \"Bát đĩa sứ xương, tô canh thủy tinh cường lực, ly thủy tinh\"}, {\"categoryId\": 14, \"categoryName\": \"Đũa, Muỗng & Dao muỗng nĩa\", \"description\": \"Bộ muỗng nĩa inox mạ vàng, đũa gỗ bu-mê, muỗng canh silicon\"}, {\"categoryId\": 15, \"categoryName\": \"Vật tư & Phụ kiện Kitchen Express\", \"description\": \"Giấy nến nồi chiên, màng bọc thực phẩm, túi zip đóng kín\"}]"
+  },
+  {
+    "name": "3.2 Tim kiem danh muc",
+    "status": "PASS",
+    "code": 200,
+    "detail": "[{\"categoryId\": 3, \"categoryName\": \"Dụng cụ Cắt thái & Sơ chế\", \"description\": \"Bộ dao thép không gỉ, thớt gỗ kháng khuẩn, kéo bếp\"}, {\"categoryId\": 11, \"categoryName\": \"Kệ giá & Khay để đồ nhà bếp\", \"description\": \"Kệ để dao thớt inox 304, giá úp bát đĩa thông minh\"}, {\"categoryId\": 14, \"categoryName\": \"Đũa, Muỗng & Dao muỗng nĩa\", \"description\": \"Bộ muỗng nĩa inox mạ vàng, đũa gỗ bu-mê, muỗng canh silicon\"}]"
+  },
+  {
+    "name": "4.1 Phan trang hang hoa (Page 1, Size 5)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"currentPage\": 1, \"pageSize\": 5, \"totalItems\": 20, \"totalPages\": 4, \"items\": [{\"productId\": 1, \"barcode\": \"893000000001\", \"productName\": \"Nồi chiên không dầu Philips 5L\", \"price\": 2490000.0, \"stockQuantity\": 18, \"categoryId\": 7, \"categoryName\": \"Nồi chiên & Nồi áp suất\"}, {\"productId\": 2, \"barcode\": \"893000000002\", \"productName\": \"Máy xay sinh tố đa năng Sunhouse\", \"price\": 650000.0, \"stockQuantity\": 40, \"categoryId\": 8, \"categoryName\": \"Máy xay & Máy ép hoa quả\"}, {\"productId\": 3, \"barcode\": \"893000000003\", \"productName\": \"Nồi cơm điện cao tần Panasonic 1.8L\", \"price\": 1850000.0, \"stockQuantity\": 16, \"categoryId\": 2, \"categoryName\": \"Thiết bị Điện nhà bếp\"}, {\"productId\": 4, \"barcode\": \"893000000004\", \"productName\": \"Lò vi sóng điện tử Sharp 20L\", \"price\": 1790000.0, \"stockQuantity\": 15, \"categoryId\": 6, \"categoryName\": \"Lò vi sóng & Thiết bị nướng\"}, {\"productId\": 5, \"barcode\": \"893000000005\", \"productName\": \"Ấm siêu tốc giữ nhiệt Lock&Lock 1.7L\", \"price\": 520000.0, \"stockQuantity\": 60, \"categoryId\": 9, \"categoryName\": \"Thiết bị Pha trà & Cà phê\"}]}"
+  },
+  {
+    "name": "4.2 Phan trang hang hoa loc theo CategoryId=1",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"currentPage\": 1, \"pageSize\": 5, \"totalItems\": 2, \"totalPages\": 1, \"items\": [{\"productId\": 6, \"barcode\": \"893000000006\", \"productName\": \"Bộ nồi inox 5 đáy Elmich 3 chiếc\", \"price\": 1250000.0, \"stockQuantity\": 30, \"categoryId\": 1, \"categoryName\": \"Nồi & Chảo chống dính\"}, {\"productId\": 7, \"barcode\": \"893000000007\", \"productName\": \"Chảo chống dính sâu lòng Tefal 28cm\", \"price\": 480000.0, \"stockQuantity\": 55, \"categoryId\": 1, \"categoryName\": \"Nồi & Chảo chống dính\"}]}"
+  },
+  {
+    "name": "4.3 Danh sach hang hoa kem Category (with-category)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "[{\"productId\": 1, \"barcode\": \"893000000001\", \"productName\": \"Nồi chiên không dầu Philips 5L\", \"price\": 2490000.0, \"stockQuantity\": 18, \"categoryId\": 7, \"categoryName\": \"Nồi chiên & Nồi áp suất\"}, {\"productId\": 2, \"barcode\": \"893000000002\", \"productName\": \"Máy xay sinh tố đa năng Sunhouse\", \"price\": 650000.0, \"stockQuantity\": 40, \"categoryId\": 8, \"categoryName\": \"Máy xay & Máy ép hoa quả\"}, {\"productId\": 3, \"barcode\": \"893000000003\", \"productName\": \"Nồi cơm điện cao tần Panasonic 1.8L\", \"price\": 1850000.0, \"stockQuantity\": 16, \"categoryId\": 2, \"categoryName\": \"Thiết bị Điện nhà bếp\"}, {\"productId\": 4, \"barcode\": \"893000000004\", \"productName\": \"Lò vi sóng điện tử Sharp 20L\", \"price\": 1790000.0, \"stockQuantity\": 15, \"categoryId\": 6, \"categoryName\": \"Lò vi sóng & Thiết bị nướng\"}, {\"productId\": 5, \"barcode\": \"893000000005\", \"productName\": \"Ấm siêu tốc giữ nhiệt Lock&Lock 1.7L\", \"price\": 520000.0, \"stockQuantity\": 60, \"categoryId\": 9, \"categoryName\": \"Thiết bị Pha trà & Cà phê\"}, {\"productId\": 6, \"barcode\": \"893000000006\", \"productName\": \"Bộ nồi inox 5 đáy Elmich 3 chiếc\", \"price\": 1250000.0, \"stockQuantity\": 30, \"categoryId\": 1, \"categoryName\": \"Nồi & Chảo chống dính\"}, {\"productId\": 7, \"barcode\": \"893000000007\", \"productName\": \"Chảo chống dính sâu lòng Tefal 28cm\", \"price\": 480000.0, \"stockQuantity\": 55, \"categoryId\": 1, \"categoryName\": \"Nồi & Chảo chống dính\"}, {\"productId\": 8, \"barcode\": \"893000000008\", \"productName\": \"Nồi áp suất điện đa năng Sunhouse 5L\", \"price\": 890000.0, \"stockQuantity\": 25, \"categoryId\": 7, \"categoryName\": \"Nồi chiên & Nồi áp suất\"}, {\"productId\": 9, \"barcode\": \"893000000009\", \"productName\": \"Bộ dao bếp cao cấp 6 món thép không gỉ\", \"price\": 450000.0, \"stockQuantity\": 35, \"categoryId\": 3, \"categoryName\": \"Dụng cụ Cắt thái & Sơ chế\"}, {\"productId\": 10, \"barcode\": \"893000000010\", \"productName\": \"Thớt gỗ Teak kháng khuẩn cao cấp (Cỡ lớn)\", \"price\": 280000.0, \"stockQuantity\": 50, \"categoryId\": 3, \"categoryName\": \"Dụng cụ Cắt thái & Sơ chế\"}, {\"productId\": 11, \"barcode\": \"893000000011\", \"productName\": \"Bộ dụng cụ nấu silicone chịu nhiệt (5 món)\", \"price\": 195000.0, \"stockQuantity\": 70, \"categoryId\": 3, \"categoryName\": \"Dụng cụ Cắt thái & Sơ chế\"}, {\"productId\": 12, \"barcode\": \"893000000012\", \"productName\": \"Hộp cơm giữ nhiệt văn phòng Lock&Lock 3 ngăn\", \"price\": 390000.0, \"stockQuantity\": 45, \"categoryId\": 4, \"categoryName\": \"Hộp đựng & Bảo quản thực phẩm\"}, {\"productId\": 13, \"barcode\": \"893000000013\", \"productName\": \"Set 4 hộp thủy tinh chịu nhiệt Borosilicate\", \"price\": 320000.0, \"stockQuantity\": 60, \"categoryId\": 4, \"categoryName\": \"Hộp đựng & Bảo quản thực phẩm\"}, {\"productId\": 14, \"barcode\": \"893000000014\", \"productName\": \"Bình giữ nhiệt thể thao Inox 304 (750ml)\", \"price\": 220000.0, \"stockQuantity\": 80, \"categoryId\": 5, \"categoryName\": \"Dụng cụ Pha chế & Bàn ăn\"}, {\"productId\": 15, \"barcode\": \"893000000015\", \"productName\": \"Bộ ấm chén trà gốm sứ Bát Tràng viền vàng\", \"price\": 680000.0, \"stockQuantity\": 20, \"categoryId\": 5, \"categoryName\": \"Dụng cụ Pha chế & Bàn ăn\"}, {\"productId\": 16, \"barcode\": \"893000000016\", \"productName\": \"Bếp từ đơn điều khiển cảm ứng Kangaroo\", \"price\": 790000.0, \"stockQuantity\": 30, \"categoryId\": 2, \"categoryName\": \"Thiết bị Điện nhà bếp\"}, {\"productId\": 17, \"barcode\": \"893000000017\", \"productName\": \"Máy ép chậm nước trái cây hoa quả Lumias\", \"price\": 1350000.0, \"stockQuantity\": 18, \"categoryId\": 8, \"categoryName\": \"Máy xay & Máy ép hoa quả\"}, {\"productId\": 18, \"barcode\": \"893000000018\", \"productName\": \"Cân tiểu ly điện tử nhà bếp định lượng 5kg\", \"price\": 150000.0, \"stockQuantity\": 65, \"categoryId\": 10, \"categoryName\": \"Dụng cụ Làm bánh & Định lượng\"}, {\"productId\": 19, \"barcode\": \"893000000019\", \"productName\": \"Kệ để dao thớt và gia vị Inox 304 (2 tầng)\", \"price\": 380000.0, \"stockQuantity\": 40, \"categoryId\": 11, \"categoryName\": \"Kệ giá & Khay để đồ nhà bếp\"}, {\"productId\": 20, \"barcode\": \"893000000020\", \"productName\": \"Giá úp bát đĩa có khay thoát nước thông minh\", \"price\": 420000.0, \"stockQuantity\": 35, \"categoryId\": 11, \"categoryName\": \"Kệ giá & Khay để đồ nhà bếp\"}]"
+  },
+  {
+    "name": "4.4 Quet ma vach Barcode POS (893000000001)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"productId\": 1, \"barcode\": \"893000000001\", \"productName\": \"Nồi chiên không dầu Philips 5L\", \"price\": 2490000.0, \"stockQuantity\": 18, \"categoryId\": 7, \"categoryName\": \"Nồi chiên & Nồi áp suất\"}"
+  },
+  {
+    "name": "5.1 Phan trang danh sach khach hang",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"currentPage\": 1, \"pageSize\": 5, \"totalItems\": 15, \"totalPages\": 3, \"items\": [{\"customerId\": 1, \"customerName\": \"Nguyễn Văn An\", \"phoneNumber\": \"0901122334\", \"address\": \"123 Nguyễn Trãi, Quận 1, TPHCM\", \"rewardPoints\": 1146, \"membershipRank\": \"Bạch Kim\"}, {\"customerId\": 10, \"customerName\": \"Dương Thị Lan\", \"phoneNumber\": \"0944332211\", \"address\": \"18 Hoàng Diệu, Quận 4, TPHCM\", \"rewardPoints\": 650, \"membershipRank\": \"Bạch Kim\"}, {\"customerId\": 4, \"customerName\": \"Phạm Thị Dung\", \"phoneNumber\": \"0932233445\", \"address\": \"102 Quang Trung, Quận Gò Vấp, TPHCM\", \"rewardPoints\": 520, \"membershipRank\": \"Bạch Kim\"}, {\"customerId\": 14, \"customerName\": \"Phan Thị Sương\", \"phoneNumber\": \"0909988776\", \"address\": \"142 Phạm Thế Hiển, Quận 8, TPHCM\", \"rewardPoints\": 480, \"membershipRank\": \"Vàng\"}, {\"customerId\": 8, \"customerName\": \"Bùi Thị Hoa\", \"phoneNumber\": \"0905544332\", \"address\": \"56 Nguyễn Thị Thập, Quận 7, TPHCM\", \"rewardPoints\": 410, \"membershipRank\": \"Vàng\"}]}"
+  },
+  {
+    "name": "5.2 Tim khach hang bang SDT POS (0901)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "[{\"customerId\": 1, \"customerName\": \"Nguyễn Văn An\", \"phoneNumber\": \"0901122334\", \"address\": \"123 Nguyễn Trãi, Quận 1, TPHCM\", \"rewardPoints\": 1146, \"membershipRank\": \"Bạch Kim\"}]"
+  },
+  {
+    "name": "6.1 Thanh toan POS (OrdersController)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"success\": true, \"orderId\": 25, \"orderCode\": \"HD-20261023-2162\", \"totalItems\": 1, \"totalAmount\": 2490000.0, \"finalAmount\": 2490000.0, \"cashReceived\": 5000000, \"changeAmount\": 2510000.0, \"pointsEarned\": 249, \"customerPoints\": 1395, \"membershipRank\": \"Bạch Kim\"}"
+  },
+  {
+    "name": "6.2 Thanh toan POS Transaction ACID (CheckoutController)",
+    "status": "PASS",
+    "code": 200,
+    "detail": "{\"success\": true, \"message\": \"Thanh toán hóa đơn POS thành công!\", \"orderId\": 26, \"orderCode\": \"HD-20261023-3DD3\", \"totalItems\": 1, \"finalAmount\": 0, \"rewardPointsAdded\": 0}"
+  }
+]
